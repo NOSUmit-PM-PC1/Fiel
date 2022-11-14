@@ -14,13 +14,35 @@ namespace Fiel
     {
         string word, template;
         int error = 0;
+        Random rnd = new Random();
+
+        string MakeStringStars(string word)
+        {
+            string stars = "";
+            foreach (char b in word)
+                stars += "*";
+            return stars;
+        }
+
+        string GenerateNewWord()
+        {
+            string[] words = { "крокодил", "стул", "молоко", "класс", "пенал", "кенгуру", "якубович", "пилот"};
+            int n = rnd.Next(0, words.Length - 1);
+            return words[n];
+        }
+        void NewGame()
+        {
+            word = "стул";//GenerateNewWord();
+            template = MakeStringStars(word);
+            labelTemplate.Text = template;
+            error = 0;
+        }
         public FormMain()
         {
             InitializeComponent();
-            word = "стул";
-            template = "****";
-            labelTemplate.Text = template;
+            NewGame();
         }
+
 
         private void textBoxLetter_TextChanged(object sender, EventArgs e)
         {
@@ -57,8 +79,40 @@ namespace Fiel
                 else
                     tempTemplate += template[i];
             }
-            template = tempTemplate;
-            labelTemplate.Text = template;
+            if (template == tempTemplate)
+            {
+                error++;
+                if (error > 6)
+                {
+                    MessageBox.Show("Вы проиграли!");
+                }
+                else
+                {
+                    string fileName = "error" + error.ToString() + ".png";
+                    pictureBoxError.Load(fileName);
+                }
+            }
+            else
+            {
+                if (tempTemplate == word)
+                {
+                    pictureBoxError.Load("win.jpg");
+                    if (MessageBox.Show("Вы победили! \n Загадать новое слово?", "Конец игры", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        NewGame();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                    
+                }
+                else
+                {
+                    template = tempTemplate;
+                    labelTemplate.Text = template;
+                }
+            }
         }
 
    

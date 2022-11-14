@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.labelTemplate = new System.Windows.Forms.Label();
             this.textBoxLetter = new System.Windows.Forms.TextBox();
             this.buttonOk = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBoxError = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxError)).BeginInit();
             this.SuspendLayout();
             // 
             // labelTemplate
@@ -66,26 +67,28 @@
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
-            // pictureBox1
+            // pictureBoxError
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(394, 162);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(191, 153);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.pictureBoxError.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxError.Image")));
+            this.pictureBoxError.Location = new System.Drawing.Point(394, 141);
+            this.pictureBoxError.Name = "pictureBoxError";
+            this.pictureBoxError.Size = new System.Drawing.Size(249, 261);
+            this.pictureBoxError.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxError.TabIndex = 3;
+            this.pictureBoxError.TabStop = false;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(719, 450);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxError);
             this.Controls.Add(this.buttonOk);
             this.Controls.Add(this.textBoxLetter);
             this.Controls.Add(this.labelTemplate);
             this.Name = "FormMain";
             this.Text = "Поле чудес";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,7 +99,7 @@
         private System.Windows.Forms.Label labelTemplate;
         private System.Windows.Forms.TextBox textBoxLetter;
         private System.Windows.Forms.Button buttonOk;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBoxError;
     }
 }
 
