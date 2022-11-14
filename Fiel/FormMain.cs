@@ -10,7 +10,6 @@ using System.Windows.Forms;
 
 namespace Fiel
 {
-    
     public partial class FormMain : Form
     {
         string word, template;
